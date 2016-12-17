@@ -75,7 +75,7 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& v) {
   return os;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
   {
     std::cout << BinaryGap::solution(51712) << std::endl;
   } {
