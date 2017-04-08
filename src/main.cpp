@@ -191,5 +191,5 @@ int main() {
     std::cout << Flags::solution(a) << std::endl;
     // !!!
   }
-	return 0;
+  return 0;
 }
