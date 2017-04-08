@@ -4,6 +4,8 @@
 
 namespace CountFactors {
 
+int solution(int N);
+
 } // namespace
 
 #endif // _COUNT_FACTORS_H_

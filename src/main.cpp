@@ -75,7 +75,7 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& v) {
   return os;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
   {
     std::cout << BinaryGap::solution(51712) << std::endl;
   } {
@@ -178,6 +178,20 @@ int main(int argc, char* argv[]) {
   } {
     std::vector<int> a {3, 2, -6, 4, 0};
     std::cout << MaxSliceSum::solution(a) << std::endl;
+  } {
+    std::cout << MinPerimeterRectangle::solution(30) << std::endl;
+  } {
+    std::cout << CountFactors::solution(24) << std::endl;
+  } {
+    // !!!
+    std::vector<int> a {1, 2, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2};
+    std::cout << Peaks::solution(a) << std::endl;
+    // !!!
+  } {
+    // !!!
+    std::vector<int> a {1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2};
+    std::cout << Flags::solution(a) << std::endl;
+    // !!!
   }
-  return 0;
+	return 0;
 }

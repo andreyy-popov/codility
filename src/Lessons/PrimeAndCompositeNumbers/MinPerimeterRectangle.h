@@ -4,6 +4,8 @@
 
 namespace MinPerimeterRectangle {
 
+int solution(int N);
+
 } // namespace
 
 #endif // _MIN_PERIMETER_RECTANGLE_H_
