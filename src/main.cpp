@@ -186,10 +186,8 @@ int main() {
     std::vector<int> a {1, 2, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2};
     std::cout << Peaks::solution(a) << std::endl;
   } {
-    // !!!
     std::vector<int> a {1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2};
     std::cout << Flags::solution(a) << std::endl;
-    // !!!
   }
   return 0;
 }
