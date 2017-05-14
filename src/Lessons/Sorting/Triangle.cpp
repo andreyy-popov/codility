@@ -1,8 +1,8 @@
 // Triangle.cpp
-#include "Triangle.h"
+#include <gmock/gmock.h>
 #include <algorithm>
 
-namespace Triangle {
+namespace {
 
 int solution(std::vector<int> &A) {
   std::sort(A.begin(), A.end());
@@ -22,6 +22,21 @@ int solution(std::vector<int> &A) {
     return 1;
   }
   return 0;
+}
+
+TEST (Triangle, Example1) {
+  std::vector<int> a {10, 2, 5, 1, 8, 20};
+  ASSERT_EQ(solution(a), 1);
+}
+
+TEST (Triangle, Example2) {
+  std::vector<int> a {10, 50, 1};
+  ASSERT_EQ(solution(a), 0);
+}
+
+TEST (Triangle, Example3) {
+  std::vector<int> a {5, 3, 3};
+  ASSERT_EQ(solution(a), 1);
 }
 
 } // namespace

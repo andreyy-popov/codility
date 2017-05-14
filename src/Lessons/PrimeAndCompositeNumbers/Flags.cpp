@@ -1,10 +1,10 @@
 // Flags.cpp
-#include "Flags.h"
+#include <gmock/gmock.h>
 #include <list>
 #include <cmath>
 #include <algorithm>
 
-namespace Flags {
+namespace {
 
 template <typename Values>
 bool IsPeak(const Values& a, typename Values::size_type i) {
@@ -47,6 +47,11 @@ int solution(std::vector<int> &A) {
     }
   }
   return res;
+}
+
+TEST (Flags, Example) {
+  std::vector<int> a {1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2};
+  ASSERT_EQ(solution(a), 3);
 }
 
 } // namespace

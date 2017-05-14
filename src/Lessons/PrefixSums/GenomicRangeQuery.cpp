@@ -1,8 +1,8 @@
 // GenomicRangeQuery.cpp
-#include "GenomicRangeQuery.h"
+#include <gmock/gmock.h>
 #include <functional>
 
-namespace GenomicRangeQuery {
+namespace {
 
 std::vector<int> solution(std::string &S, std::vector<int> &P, std::vector<int> &Q) {
   typedef std::vector<int> PrefixSums;
@@ -34,6 +34,13 @@ std::vector<int> solution(std::string &S, std::vector<int> &P, std::vector<int> 
     }
   }
   return res;
+}
+
+TEST (GenomicRangeQuery, Example) {
+  std::string s = "CAGCCTA";
+  std::vector<int> p {2, 5, 0};
+  std::vector<int> q {4, 5, 6};
+  EXPECT_THAT(solution(s, p, q), testing::ContainerEq<std::vector<int>>({2, 4, 1}));
 }
 
 } // namespace

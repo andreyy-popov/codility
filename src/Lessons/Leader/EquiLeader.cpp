@@ -1,8 +1,8 @@
 // EquiLeader.cpp
-#include "EquiLeader.h"
+#include <gmock/gmock.h>
 #include <algorithm>
 
-namespace EquiLeader {
+namespace {
 
 int leader(const std::vector<int>& a, int& l) {
   int count = 0;
@@ -47,6 +47,11 @@ int solution(std::vector<int> &A) {
     return res;
   }
   return 0;
+}
+
+TEST (EquiLeader, Example) {
+  std::vector<int> a {4, 3, 4, 4, 4, 2};
+  ASSERT_EQ(solution(a), 2);
 }
 
 } // namespace

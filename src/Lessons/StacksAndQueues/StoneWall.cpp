@@ -1,8 +1,8 @@
 // StoneWall.cpp
-#include "StoneWall.h"
+#include <gmock/gmock.h>
 #include <stack>
 
-namespace StoneWall {
+namespace {
 
 int solution(std::vector<int> &H) {
   int total_height = 0;
@@ -20,6 +20,11 @@ int solution(std::vector<int> &H) {
     }
   }
   return block_count;
+}
+
+TEST (StoneWall, Example) {
+  std::vector<int> h {8, 8, 5, 7, 9, 8, 7, 4, 8};
+  ASSERT_EQ(solution(h), 7);
 }
 
 } // namespace

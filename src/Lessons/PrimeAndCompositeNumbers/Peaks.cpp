@@ -1,7 +1,7 @@
 // Peaks.cpp
-#include "Peaks.h"
+#include <gmock/gmock.h>
 
-namespace Peaks {
+namespace {
 
 template <typename Values, typename Size>
 bool IsPeak(const Values& a, Size i) {
@@ -55,6 +55,11 @@ int solution(std::vector<int> &A) {
     return (A.size() / blockSize);
   }
   return 0;
+}
+
+TEST (Peaks, Example) {
+  std::vector<int> a {1, 2, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2};
+  ASSERT_EQ(solution(a), 3);
 }
 
 } // namespace

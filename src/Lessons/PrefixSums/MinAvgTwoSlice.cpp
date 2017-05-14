@@ -1,9 +1,9 @@
 // MinAvgTwoSlice.cpp
-#include "MinAvgTwoSlice.h"
+#include <gmock/gmock.h>
 #include <numeric>
 #include <iterator>
 
-namespace MinAvgTwoSlice {
+namespace {
 
 int solution(std::vector<int> &A) {
   int res = 0;
@@ -18,6 +18,16 @@ int solution(std::vector<int> &A) {
     }
   };
   return (fn(2), fn(3), res);
+}
+
+TEST (MinAvgTwoSlice, Example1) {
+  std::vector<int> a {4, 2, 2, 5, 1, 5, 8};
+  ASSERT_EQ(solution(a), 1);
+}
+
+TEST (MinAvgTwoSlice, Example2) {
+  std::vector<int> a {10, 10, -1, 2, 4, -1, 2, -1};
+  ASSERT_EQ(solution(a), 5);
 }
 
 } // namespace

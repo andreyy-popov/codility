@@ -1,9 +1,9 @@
 // BinaryGap.cpp
-#include "BinaryGap.h"
+#include <gmock/gmock.h>
 #include <functional>
 #include <algorithm>
 
-namespace BinaryGap {
+namespace {
 
 int solution(int N) {
   std::function<int(int)>
@@ -27,6 +27,10 @@ int solution(int N) {
     return max_gap(n >> 1, zeros + 1, res);
   };
   return max_gap(trim_zeros(N), 0, 0);
+}
+
+TEST (BinaryGap, Example) {
+  ASSERT_EQ(solution(51712), 2);
 }
 
 } // namespace

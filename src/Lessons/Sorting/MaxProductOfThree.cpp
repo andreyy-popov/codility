@@ -1,9 +1,9 @@
 // MaxProductOfThree.cpp
-#include "MaxProductOfThree.h"
+#include <gmock/gmock.h>
 #include <algorithm>
 #include <functional>
 
-namespace MaxProductOfThree {
+namespace {
 
 int solution(std::vector<int> &A) {
   std::vector<int> a1(2);
@@ -13,6 +13,11 @@ int solution(std::vector<int> &A) {
   return std::max(
     a1[0] * a1[1] * a2[0],
     a2[0] * a2[1] * a2[2]);
+}
+
+TEST (MaxProductOfThree, Example) {
+  std::vector<int> a {-3, 1, 2, -2, 5, 6};
+  ASSERT_EQ(solution(a), 60);
 }
 
 } // namespace

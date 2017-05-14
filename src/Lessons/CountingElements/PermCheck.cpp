@@ -1,7 +1,7 @@
 // PermCheck.cpp
-#include "PermCheck.h"
+#include <gmock/gmock.h>
 
-namespace PermCheck {
+namespace {
 
 int solution(std::vector<int> &A) {
   std::vector<int> count(A.size(), 0);
@@ -20,6 +20,16 @@ int solution(std::vector<int> &A) {
     }
   }
   return 1;
+}
+
+TEST (PermCheck, Example1) {
+  std::vector<int> a {4, 1, 3, 2};
+  ASSERT_EQ(solution(a), 1);
+}
+
+TEST (PermCheck, Example2) {
+  std::vector<int> a {4, 1, 3};
+  ASSERT_EQ(solution(a), 0);
 }
 
 } // namespace

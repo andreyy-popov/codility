@@ -1,8 +1,8 @@
 // MaxProfit.cpp
-#include "MaxProfit.h"
+#include <gmock/gmock.h>
 #include <algorithm>
 
-namespace MaxProfit {
+namespace {
 
 int solution(std::vector<int> &A) {
   int max_profit = 0;
@@ -14,6 +14,11 @@ int solution(std::vector<int> &A) {
     }
   }
   return max_profit;
+}
+
+TEST (MaxProfit, Example) {
+  std::vector<int> a {23171, 21011, 21123, 21366, 21013, 21367};
+  ASSERT_EQ(solution(a),356 );
 }
 
 } // namespace

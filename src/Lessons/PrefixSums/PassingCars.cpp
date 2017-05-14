@@ -1,8 +1,8 @@
 // PassingCars.cpp
-#include "PassingCars.h"
+#include <gmock/gmock.h>
 #include <algorithm>
 
-namespace PassingCars {
+namespace {
 
 int solution(std::vector<int> &A) {
   int zeros = std::count(A.begin(), A.end(), 0);
@@ -15,6 +15,11 @@ int solution(std::vector<int> &A) {
     }
   }
   return res;
+}
+
+TEST (PassingCars, Example) {
+  std::vector<int> a {0, 1, 0, 1, 1};
+  ASSERT_EQ(solution(a), 5);
 }
 
 } // namespace

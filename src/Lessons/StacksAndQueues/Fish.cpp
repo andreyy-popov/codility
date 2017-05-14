@@ -1,8 +1,8 @@
 // Fish.cpp
-#include "Fish.h"
+#include <gmock/gmock.h>
 #include <stack>
 
-namespace Fish {
+namespace {
 
 int solution(std::vector<int> &A, std::vector<int> &B) {
   int upstream_fish_count = 0;
@@ -21,6 +21,12 @@ int solution(std::vector<int> &A, std::vector<int> &B) {
     }
   }
   return (upstream_fish_count + downstream_fishes.size());
+}
+
+TEST (Fish, Example) {
+  std::vector<int> a {4, 3, 2, 1, 5};
+  std::vector<int> b {0, 1, 0, 0, 0};
+  ASSERT_EQ(solution(a, b), 2);
 }
 
 } // namespace

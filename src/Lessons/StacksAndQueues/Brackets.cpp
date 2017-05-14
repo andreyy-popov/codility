@@ -1,9 +1,9 @@
 // Brackets.cpp
-#include "Brackets.h"
+#include <gmock/gmock.h>
 #include <functional>
 #include <list>
 
-namespace Brackets {
+namespace {
 
 typedef std::function<bool(std::string::const_iterator& it, std::string::const_iterator end)> Parser;
 
@@ -70,6 +70,16 @@ int solution(std::string &S) {
   Parser curved_brackets_parser = seq({one('{'), ref(brackets_parser), one('}')});
   brackets_parser = star(sor({round_brackets_parser, square_brackets_parser, curved_brackets_parser}));
   return parse(S, brackets_parser) ? 1 : 0;
+}
+
+TEST (Brackets, Example1) {
+  std::string s = "{[()()]}";
+  ASSERT_EQ(solution(s), 1);
+}
+
+TEST (Brackets, Example2) {
+  std::string s = "([)()]";
+  ASSERT_EQ(solution(s), 0);
 }
 
 } // namespace

@@ -1,7 +1,7 @@
 // CountFactors.cpp
-#include "CountFactors.h"
+#include <gmock/gmock.h>
 
-namespace CountFactors {
+namespace {
 
 int solution(int N) {
   int factors = 0;
@@ -15,6 +15,10 @@ int solution(int N) {
     ++factors;
   }
   return factors;
+}
+
+TEST (CountFactors, Example) {
+  ASSERT_EQ(solution(24), 8);
 }
 
 } // namespace

@@ -1,8 +1,8 @@
 // MinPerimeterRectangle.cpp
-#include "MinPerimeterRectangle.h"
+#include <gmock/gmock.h>
 #include <algorithm>
 
-namespace MinPerimeterRectangle {
+namespace {
 
 int solution(int N) {
   int min_perimeter = 2 * (1 + N);
@@ -12,6 +12,10 @@ int solution(int N) {
     }
   }
   return min_perimeter;
+}
+
+TEST (MinPerimeterRectangle, Example) {
+  ASSERT_EQ(solution(30), 22);
 }
 
 } // namespace

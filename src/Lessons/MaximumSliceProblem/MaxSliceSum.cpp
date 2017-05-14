@@ -1,8 +1,8 @@
 // MaxSliceSum.cpp
-#include "MaxSliceSum.h"
+#include <gmock/gmock.h>
 #include <algorithm>
 
-namespace MaxSliceSum {
+namespace {
 
 int solution(std::vector<int> &A) {
   int max_ending = A.front();
@@ -12,6 +12,11 @@ int solution(std::vector<int> &A) {
     max_slice = std::max(max_slice, max_ending);
   }
   return max_slice;
+}
+
+TEST (MaxSliceSum, Example) {
+  std::vector<int> a {3, 2, -6, 4, 0};
+  ASSERT_EQ(solution(a), 5);
 }
 
 } // namespace

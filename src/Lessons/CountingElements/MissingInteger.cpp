@@ -1,7 +1,7 @@
 // MissingInteger.cpp
-#include "MissingInteger.h"
+#include <gmock/gmock.h>
 
-namespace MissingInteger {
+namespace {
 
 int solution(std::vector<int> &A) {
   std::vector<int> count(A.size(), 0);
@@ -20,6 +20,11 @@ int solution(std::vector<int> &A) {
     }
   }
   return (count.size() + 1);
+}
+
+TEST (MissingInteger, Example) {
+  std::vector<int> a {1, 3, 6, 4, 1, 2};
+  ASSERT_EQ(solution(a), 5);
 }
 
 } // namespace

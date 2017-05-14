@@ -1,9 +1,9 @@
 // Nesting.cpp
-#include "Nesting.h"
+#include <gmock/gmock.h>
 #include <functional>
 #include <list>
 
-namespace Nesting {
+namespace {
 
 typedef std::function<bool(std::string::const_iterator& it, std::string::const_iterator end)> Parser;
 
@@ -68,6 +68,16 @@ int solution(std::string &S) {
   Parser round_brackets_parser = seq({one('('), ref(brackets_parser), one(')')});
   brackets_parser = star(round_brackets_parser);
   return parse(S, brackets_parser) ? 1 : 0;
+}
+
+TEST (Nesting, Example1) {
+  std::string s = "(()(())())";
+  ASSERT_EQ(solution(s), 1);
+}
+
+TEST (Nesting, Example2) {
+  std::string s = "())";
+  ASSERT_EQ(solution(s), 0);
 }
 
 } // namespace

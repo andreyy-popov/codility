@@ -1,8 +1,8 @@
 // Distinct.cpp
-#include "Distinct.h"
+#include <gmock/gmock.h>
 #include <algorithm>
 
-namespace Distinct {
+namespace {
 
 int solution(std::vector<int> &A) {
   if (A.empty()) {
@@ -16,6 +16,11 @@ int solution(std::vector<int> &A) {
     }
   }
   return res;
+}
+
+TEST (Distinct, Example) {
+  std::vector<int> a {2, 1, 1, 2, 3, 1};
+  ASSERT_EQ(solution(a), 3);
 }
 
 } // namespace

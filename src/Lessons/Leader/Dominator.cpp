@@ -1,9 +1,9 @@
 // Dominator.cpp
-#include "Dominator.h"
+#include <gmock/gmock.h>
 #include <algorithm>
 #include <iterator>
 
-namespace Dominator {
+namespace {
 
 int solution(std::vector<int> &A) {
   int count = 0;
@@ -27,6 +27,11 @@ int solution(std::vector<int> &A) {
     }
   }
   return -1;
+}
+
+TEST (Dominator, Example) {
+  std::vector<int> a {3, 4, 3, 2, 3, -1, 3, 3};
+  ASSERT_EQ(solution(a), 0);
 }
 
 } // namespace

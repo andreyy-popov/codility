@@ -1,10 +1,10 @@
 // NumberOfDiscIntersections.cpp
-#include "NumberOfDiscIntersections.h"
+#include <gmock/gmock.h>
 #include <algorithm>
 #include <iterator>
 #include <utility>
 
-namespace NumberOfDiscIntersections {
+namespace {
 
 int solution(std::vector<int> &A) {
   int res = 0;
@@ -30,6 +30,16 @@ int solution(std::vector<int> &A) {
     }
   }
   return res;
+}
+
+TEST (NumberOfDiscIntersections, Example1) {
+  std::vector<int> a {1, 5, 2, 1, 4, 0};
+  ASSERT_EQ(solution(a), 11);
+}
+
+TEST (NumberOfDiscIntersections, Example2) {
+  std::vector<int> a {1, 1, 1};
+  ASSERT_EQ(solution(a), 3);
 }
 
 } // namespace

@@ -1,9 +1,9 @@
 // TapeEquilibrium.cpp
-#include "TapeEquilibrium.h"
+#include <gmock/gmock.h>
 #include <algorithm>
 #include <numeric>
 
-namespace TapeEquilibrium {
+namespace {
 
 int solution(std::vector<int> &A) {
   int prefix_sum = A.front();
@@ -15,6 +15,11 @@ int solution(std::vector<int> &A) {
     res = std::min(res, std::abs(suffix_sum - prefix_sum));
   }
   return res;
+}
+
+TEST (TapeEquilibrium, Example) {
+  std::vector<int> a {3, 1, 2, 4, 3};
+  ASSERT_EQ(solution(a), 1);
 }
 
 } // namespace
